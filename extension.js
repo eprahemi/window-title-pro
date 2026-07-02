@@ -66,6 +66,18 @@ const WindowTitleIndicator = GObject.registerClass(
                 this
             );
 
+            // ── Destroy handler (satisfies Shexli EGO-L-002) ──
+            this.connect('destroy', () => {
+                global.display.disconnectObject(this);
+                St.TextureCache.get_default().disconnectObject(this);
+                if (this._focused_window)
+                    this._focused_window.disconnectObject(this);
+                this._focused_window = null;
+                this._focused_app = null;
+                Main.panel.menuManager.removeMenu(this.menu);
+                this.menu = null;
+            });
+
         }
 
         _fade_in() {
@@ -146,20 +158,6 @@ const WindowTitleIndicator = GObject.registerClass(
                 this._title.set_text(this._focused_window.get_title());
         }
 
-        _destroy() {
-            global.display.disconnectObject(this);
-            St.TextureCache.get_default().disconnectObject(this);
-
-            if (this._focused_window)
-                this._focused_window.disconnectObject(this);
-            this._focused_window = null;
-            this._focused_app = null;
-
-            Main.panel.menuManager.removeMenu(this.menu);
-            this.menu = null;
-
-            super.destroy();
-        }
     }
 );
 
@@ -296,7 +294,7 @@ export default class WindowTitleProExtension extends Extension {
         this._settings = null;
 
         if (this._indicator) {
-            this._indicator._destroy();
+            this._indicator.destroy();
             this._indicator = null;
         }
     }
