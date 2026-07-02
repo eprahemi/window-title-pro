@@ -16,7 +16,7 @@
     </key>
 
     <key name="show-title" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Show window title</summary>
       <description>Show the focused window's title in the panel.</description>
     </key>
