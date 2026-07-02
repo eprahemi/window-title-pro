@@ -1,0 +1,5 @@
+# Compiled schema cache is build artifact; regenerated with glib-compile-schemas
+schemas/gschemas.compiled
+
+# macOS metadata
+.DS_Store

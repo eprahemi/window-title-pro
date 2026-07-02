@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.window-title-pro"
+          path="/org/gnome/shell/extensions/window-title-pro/">
+
+    <key name="show-icon" type="b">
+      <default>true</default>
+      <summary>Show icon</summary>
+      <description>Show the focused window's app icon in the panel.</description>
+    </key>
+
+    <key name="show-app" type="b">
+      <default>true</default>
+      <summary>Show app name</summary>
+      <description>Show the focused window's app name in the panel.</description>
+    </key>
+
+    <key name="show-title" type="b">
+      <default>true</default>
+      <summary>Show window title</summary>
+      <description>Show the focused window's title in the panel.</description>
+    </key>
+
+    <key name="colored-icon" type="b">
+      <default>false</default>
+      <summary>Colored icon</summary>
+      <description>Show the app icon in full color instead of monochrome/desaturated.</description>
+    </key>
+
+    <key name="fixed-width" type="b">
+      <default>true</default>
+      <summary>Fixed width</summary>
+      <description>Use a fixed width for the indicator instead of auto-sizing.</description>
+    </key>
+
+    <key name="width" type="i">
+      <default>30</default>
+      <summary>Indicator width</summary>
+      <description>Width of the indicator as a percentage of the panel width.</description>
+    </key>
+
+    <key name="icon-size" type="i">
+      <default>16</default>
+      <summary>Icon size</summary>
+      <description>Size of the app icon in pixels.</description>
+    </key>
+
+    <key name="ease-time" type="i">
+      <default>100</default>
+      <summary>Fade in/out time</summary>
+      <description>Duration of the fade in/out animation in milliseconds.</description>
+    </key>
+
+    <key name="panel-position" type="s">
+      <choices>
+        <choice value="left"/>
+        <choice value="center"/>
+        <choice value="right"/>
+      </choices>
+      <default>'left'</default>
+      <summary>Panel position</summary>
+      <description>Which side of the top panel to place the indicator.</description>
+    </key>
+
+    <key name="toggle-shortcut" type="as">
+      <default>['&lt;Super&gt;y']</default>
+      <summary>Toggle visibility shortcut</summary>
+      <description>Keyboard shortcut to show/hide the indicator.</description>
+    </key>
+
+  </schema>
+</schemalist>
