@@ -3,7 +3,7 @@
 //    @eprahemi 2025
 //
 //    Based on "Window Title Is Back" by fthx
-//    — right-click menu, panel position, keyboard shortcuts, MacTahoe styling
+//    — panel position, keyboard shortcuts, MacTahoe styling
 
 
 import Clutter from 'gi://Clutter';
