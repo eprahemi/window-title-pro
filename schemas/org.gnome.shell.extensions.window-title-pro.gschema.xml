@@ -28,7 +28,7 @@
     </key>
 
     <key name="fixed-width" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Fixed width</summary>
       <description>Use a fixed width for the indicator instead of auto-sizing.</description>
     </key>
