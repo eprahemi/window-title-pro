@@ -66,18 +66,18 @@ const WindowTitleIndicator = GObject.registerClass(
                 this
             );
 
-            // ── Destroy handler (satisfies Shexli EGO-L-002) ──
-            this.connect('destroy', () => {
-                global.display.disconnectObject(this);
-                St.TextureCache.get_default().disconnectObject(this);
-                if (this._focused_window)
-                    this._focused_window.disconnectObject(this);
-                this._focused_window = null;
-                this._focused_app = null;
-                Main.panel.menuManager.removeMenu(this.menu);
-                this.menu = null;
-            });
+        }
 
+        destroy() {
+            global.display.disconnectObject(this);
+            St.TextureCache.get_default().disconnectObject(this);
+            if (this._focused_window)
+                this._focused_window.disconnectObject(this);
+            this._focused_window = null;
+            this._focused_app = null;
+            Main.panel.menuManager.removeMenu(this.menu);
+            this.menu = null;
+            super.destroy();
         }
 
         _fade_in() {
@@ -201,13 +201,7 @@ export default class WindowTitleProExtension extends Extension {
     }
 
     _setup_keybinding() {
-        // Remove any previous binding first
-        try {
-            Main.wm.removeKeybinding('toggle-shortcut');
-        } catch (e) {
-            // ignore if no binding exists
-        }
-
+        Main.wm.removeKeybinding('toggle-shortcut');
         Main.wm.addKeybinding(
             'toggle-shortcut',
             this._settings,
@@ -284,11 +278,7 @@ export default class WindowTitleProExtension extends Extension {
     }
 
     disable() {
-        try {
-            Main.wm.removeKeybinding('toggle-shortcut');
-        } catch (e) {
-            // ignore
-        }
+        Main.wm.removeKeybinding('toggle-shortcut');
 
         this._settings.disconnectObject(this);
         this._settings = null;
