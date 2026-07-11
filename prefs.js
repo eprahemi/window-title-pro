@@ -13,7 +13,15 @@ function _modifier_name(state, mask, name) {
 }
 
 function _shortcut_to_text(shortcut) {
-    return shortcut || 'None';
+    if (!shortcut || shortcut === 'None')
+        return 'None';
+    return shortcut
+        .replace(/<Super>/g, 'Super + ')
+        .replace(/<Ctrl>/g, 'Ctrl + ')
+        .replace(/<Alt>/g, 'Alt + ')
+        .replace(/<Shift>/g, 'Shift + ')
+        .replace(/\+ $/, '')
+        .replace(/([a-zA-Z])$/, (m) => m.toUpperCase());
 }
 
 function create_shortcut_row(title, subtitle, settings, key) {
@@ -275,6 +283,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
 
         const row_width = new Adw.SpinRow({
             title: 'Indicator width (% of panel)',
+            subtitle: 'Enable "Fixed width" above to use',
             adjustment: adjustment_width,
         });
         group_size.add(row_width);
@@ -282,6 +291,17 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
             'width', row_width, 'value',
             Gio.SettingsBindFlags.DEFAULT
         );
+
+        // ── Sync width sensitivity with fixed-width ──
+        const _sync_width = () => {
+            const on = window._settings.get_boolean('fixed-width');
+            row_width.set_sensitive(on);
+            row_width.set_subtitle(on
+                ? 'Percentage of panel width'
+                : 'Enable "Fixed width" above to use');
+        };
+        _sync_width();
+        window._settings.connect('changed::fixed-width', _sync_width);
 
         // ── Animation group ──
         const group_anim = new Adw.PreferencesGroup({
@@ -291,7 +311,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
 
         const adjustment_time = new Gtk.Adjustment({
             lower: 0,
-            upper: 300,
+            upper: 1000,
             step_increment: 10,
         });
 
@@ -303,6 +323,58 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         group_anim.add(row_time);
         window._settings.bind(
             'ease-time', row_time, 'value',
+            Gio.SettingsBindFlags.DEFAULT
+        );
+
+        // ── Text group ──
+        const group_text = new Adw.PreferencesGroup({
+            title: 'Text',
+        });
+        page.add(group_text);
+
+        const row_separator = new Adw.ComboRow({
+            title: 'Separator',
+            subtitle: 'Enable "Show window title" above to use',
+        });
+        const sep_list = new Gtk.StringList();
+        const sep_options = [' — ', ' | ', ' - ', ' ~ ', ' · ', ' » ', ' « ', ' • ', ' → ', ' / ', ' : ', ' •• '];
+        const sep_labels = ['—  (em dash)', '|  (pipe)', '-  (hyphen)', '~  (tilde)', '·  (middle dot)', '»  (right guillemet)', '«  (left guillemet)', '•  (bullet)', '→  (arrow)', '/  (slash)', ':  (colon)', '••  (double bullet)'];
+        for (const label of sep_labels)
+            sep_list.append(label);
+        row_separator.set_model(sep_list);
+        const current_sep = window._settings.get_string('separator');
+        const sep_idx = sep_options.indexOf(current_sep);
+        row_separator.set_selected(sep_idx >= 0 ? sep_idx : 0);
+        row_separator.connect('notify::selected', () => {
+            window._settings.set_string('separator', sep_options[row_separator.get_selected()]);
+        });
+        group_text.add(row_separator);
+
+        // ── Sync separator sensitivity with show-title ──
+        const _sync_separator = () => {
+            const on = window._settings.get_boolean('show-title');
+            row_separator.set_sensitive(on);
+            row_separator.set_subtitle(on
+                ? 'Text shown between app name and window title'
+                : 'Enable "Show window title" above to use');
+        };
+        _sync_separator();
+        window._settings.connect('changed::show-title', _sync_separator);
+
+        const adjustment_font = new Gtk.Adjustment({
+            lower: 0,
+            upper: 24,
+            step_increment: 1,
+        });
+
+        const row_font = new Adw.SpinRow({
+            title: 'Font size (px)',
+            subtitle: 'Set to 0 for default panel size',
+            adjustment: adjustment_font,
+        });
+        group_text.add(row_font);
+        window._settings.bind(
+            'font-size', row_font, 'value',
             Gio.SettingsBindFlags.DEFAULT
         );
 

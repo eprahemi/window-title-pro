@@ -68,5 +68,17 @@
       <description>Keyboard shortcut to show/hide the indicator.</description>
     </key>
 
+    <key name="separator" type="s">
+      <default>' — '</default>
+      <summary>Separator text</summary>
+      <description>Text shown between the app name and window title.</description>
+    </key>
+
+    <key name="font-size" type="i">
+      <default>0</default>
+      <summary>Font size override</summary>
+      <description>Custom font size in pixels. Set to 0 to use the default panel size.</description>
+    </key>
+
   </schema>
 </schemalist>

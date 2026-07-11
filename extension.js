@@ -176,7 +176,7 @@ export default class WindowTitleProExtension extends Extension {
 
         if (this._settings.get_boolean('show-app') &&
             this._settings.get_boolean('show-title'))
-            this._indicator._app_padding.set_text('   —   ');
+            this._indicator._app_padding.set_text(this._settings.get_string('separator'));
         else
             this._indicator._app_padding.set_text('');
 
@@ -196,6 +196,19 @@ export default class WindowTitleProExtension extends Extension {
             );
         else
             this._indicator.set_width(-1);
+
+        // ── Font size ──
+        const fontSize = this._settings.get_int('font-size');
+        if (fontSize > 0) {
+            const style = `font-size: ${fontSize}px;`;
+            this._indicator._icon.set_style(style);
+            this._indicator._app.set_style(style);
+            this._indicator._title.set_style(style);
+        } else {
+            this._indicator._icon.set_style('');
+            this._indicator._app.set_style('');
+            this._indicator._title.set_style('');
+        }
 
         this._indicator._on_focused_window_changed();
     }
