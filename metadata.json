@@ -1,5 +1,5 @@
 {
-  "description": "Focused window icon + app name + title in the top bar. MacTahoe-styled with panel position chooser, keyboard shortcuts, monochrome option, per-app title colors (379 apps), workspace indicator, window count badge, and fade animations. Enhanced by Eprahemi.",
+  "description": "Focused window icon + app name + title in the top bar. MacTahoe-styled with panel position chooser, keyboard shortcuts, monochrome option, per-app title colors (379 apps), workspace indicator, window count badge, and fade animations.\n\nEnhanced by Eprahemi.",
   "name": "Window Title Pro Topbar Enhanced",
   "shell-version": [
     "45",
