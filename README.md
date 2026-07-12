@@ -3,7 +3,6 @@
 A GNOME Shell top bar extension that displays the focused window's icon, app name, and title.
 
 [![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-45%20%7C%2046%20%7C%2047%20%7C%2048%20%7C%2049%20%7C%2050-brightgreen)](https://extensions.gnome.org/extension/10319/window-title-pro/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-10-orange)](https://github.com/eprahemi/window-title-pro/releases)
 [![Fedora MacTahoe](https://img.shields.io/badge/Fedora%20MacTahoe-Eprahemi%20Edition-FF4500)](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
 
@@ -91,7 +90,3 @@ This extension is part of the **[Fedora MacTahoe](https://github.com/eprahemi/Fe
 - [GitHub](https://github.com/eprahemi)
 - [EGO](https://extensions.gnome.org/extension/10319/window-title-pro/)
 - [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
-
-## License
-
-MIT
