@@ -2,7 +2,7 @@
 //    GNOME Shell extension — MacTahoe Edition
 //    @eprahemi 2025-2026
 //
-//    Based on "Window Title Is Back" by fthx
+//    Enhanced by Eprahemi
 //    — panel position, keyboard shortcuts, MacTahoe styling
 //    — Enhanced: workspace indicator, window count, per-app colors
 
