@@ -5,6 +5,9 @@ A GNOME Shell top bar extension that displays the focused window's icon, app nam
 [![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-45%20%7C%2046%20%7C%2047%20%7C%2048%20%7C%2049%20%7C%2050-brightgreen)](https://extensions.gnome.org/extension/10319/window-title-pro/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-10-orange)](https://github.com/eprahemi/window-title-pro/releases)
+[![Fedora MacTahoe](https://img.shields.io/badge/Fedora%20MacTahoe-Eprahemi%20Edition-FF4500)](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
+
+> **Part of the [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi) project** — a complete macOS-style desktop transformation for Fedora Linux.
 
 > **EGO:** [Install from extensions.gnome.org](https://extensions.gnome.org/extension/10319/window-title-pro/)
 
@@ -79,11 +82,15 @@ Open **GNOME Extensions** app → **Window Title Pro Topbar Enhanced** → gear 
 
 GNOME 45, 46, 47, 48, 49, 50
 
+## Fedora MacTahoe
+
+This extension is part of the **[Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)** project — a complete macOS-style desktop transformation for Fedora Linux featuring GTK themes, icon themes, SF Pro fonts, Fish shell functions, GDM theming, and more.
+
 ## Enhanced by Eprahemi
 
 - [GitHub](https://github.com/eprahemi)
 - [EGO](https://extensions.gnome.org/extension/10319/window-title-pro/)
-- Part of the [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi) project
+- [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
 
 ## License
 
