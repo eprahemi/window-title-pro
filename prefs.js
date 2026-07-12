@@ -433,7 +433,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         const group_info = new Adw.PreferencesGroup({
             title: 'Window Title Pro Topbar Enhanced',
             description: 'Fork of "Window Title Is Back" by fthx. Features panel position, '
-                + 'keyboard shortcuts, custom CSS, per-app colors, workspace indicator, '
+                + 'keyboard shortcuts, per-app colors (379 apps), workspace indicator, '
                 + 'and window count.',
         });
         page.add(group_info);

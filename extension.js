@@ -4,7 +4,7 @@
 //
 //    Based on "Window Title Is Back" by fthx
 //    — panel position, keyboard shortcuts, MacTahoe styling
-//    — Enhanced: workspace indicator, window count, custom CSS, per-app colors
+//    — Enhanced: workspace indicator, window count, per-app colors
 
 
 import Clutter from 'gi://Clutter';
