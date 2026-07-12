@@ -7,7 +7,6 @@ import { ExtensionPreferences } from 'resource:///org/gnome/Shell/Extensions/js/
 
 
 // ── Shortcut recorder row ──
-// Click the edit button, press a key combo, it saves.
 function _modifier_name(state, mask, name) {
     return (state & mask) ? `<${name}>` : '';
 }
@@ -46,7 +45,6 @@ function create_shortcut_row(title, subtitle, settings, key) {
     });
     row.add_suffix(edit_btn);
 
-    // ── Recording state ──
     let recording = false;
     let controller = null;
 
@@ -54,34 +52,28 @@ function create_shortcut_row(title, subtitle, settings, key) {
         recording = true;
         label.set_label('… press keys …');
         label.set_css_classes(['warning']);
-
         edit_btn.set_sensitive(false);
 
         controller = new Gtk.EventControllerKey();
-        // Add to the top-level window so key events are captured globally
         const window = row.get_root();
         if (window)
             window.add_controller(controller);
 
         controller.connect('key-pressed', (_ctrl, keyval, _keycode, state) => {
-            // Modifier masks
             const required_mods = Gdk.ModifierType.CONTROL_MASK
                                 | Gdk.ModifierType.ALT_MASK
                                 | Gdk.ModifierType.SUPER_MASK
                                 | Gdk.ModifierType.SHIFT_MASK;
             const mods_only = required_mods | Gdk.ModifierType.LOCK_MASK;
 
-            // Lone modifier press (e.g. just holding Ctrl) — keep waiting
             if ((state & mods_only) === 0 && keyval > 0)
                 return Gdk.EVENT_PROPAGATE;
 
-            // Must include at least one modifier — reject plain letters like 'y'
             if ((state & required_mods) === 0) {
                 label.set_label('need a modifier (Ctrl, Alt, Super…)');
                 return Gdk.EVENT_STOP;
             }
 
-            // Build accelerator string
             const mods = [
                 _modifier_name(state, Gdk.ModifierType.CONTROL_MASK, 'Ctrl'),
                 _modifier_name(state, Gdk.ModifierType.ALT_MASK, 'Alt'),
@@ -100,7 +92,6 @@ function create_shortcut_row(title, subtitle, settings, key) {
             label.set_css_classes(['accent']);
             edit_btn.set_sensitive(true);
 
-            // Clean up controller
             if (controller) {
                 const root = row.get_root();
                 if (root)
@@ -138,7 +129,6 @@ function create_shortcut_row(title, subtitle, settings, key) {
         }
     });
 
-    // Update label when settings change externally
     settings.connect('changed::' + key, () => {
         const updated = settings.get_strv(key);
         const updated_text = updated.length > 0 ? updated[0] : 'None';
@@ -156,7 +146,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         window._settings = this.getSettings();
 
         const page = new Adw.PreferencesPage({
-            title: 'Window Title Pro',
+            title: 'Window Title Pro Enhanced',
             icon_name: 'dialog-information-symbolic',
         });
         window.add(page);
@@ -213,6 +203,29 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
             Gio.SettingsBindFlags.DEFAULT
         );
 
+        const row_per_app_color = new Adw.SwitchRow({
+            title: 'Per-app title color',
+            subtitle: 'Color the app name based on the application (requires "Colored icon" above)',
+        });
+        group_appearance.add(row_per_app_color);
+
+        // ── Per-app color depends on colored-icon ──
+        const _syncPerAppColor = () => {
+            const colorOn = window._settings.get_boolean('colored-icon');
+            row_per_app_color.set_sensitive(colorOn);
+            if (!colorOn && window._settings.get_boolean('per-app-color')) {
+                window._settings.set_boolean('per-app-color', false);
+            }
+            row_per_app_color.set_active(window._settings.get_boolean('per-app-color'));
+        };
+        window._settings.connect('changed::colored-icon', _syncPerAppColor);
+        _syncPerAppColor();
+
+        window._settings.bind(
+            'per-app-color', row_per_app_color, 'active',
+            Gio.SettingsBindFlags.DEFAULT
+        );
+
         // ── Panel group ──
         const group_panel = new Adw.PreferencesGroup({
             title: 'Panel',
@@ -229,7 +242,6 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         row_position.set_model(pos_list);
         group_panel.add(row_position);
 
-        // Map combo index to settings value
         const pos_map = ['left', 'center', 'right'];
         const pos_current = pos_map.indexOf(
             window._settings.get_string('panel-position')
@@ -292,7 +304,6 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
             Gio.SettingsBindFlags.DEFAULT
         );
 
-        // ── Sync width sensitivity with fixed-width ──
         const _sync_width = () => {
             const on = window._settings.get_boolean('fixed-width');
             row_width.set_sensitive(on);
@@ -350,7 +361,6 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         });
         group_text.add(row_separator);
 
-        // ── Sync separator sensitivity with show-title ──
         const _sync_separator = () => {
             const on = window._settings.get_boolean('show-title');
             row_separator.set_sensitive(on);
@@ -378,6 +388,33 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
             Gio.SettingsBindFlags.DEFAULT
         );
 
+        // ── Enhanced group ──
+        const group_enhanced = new Adw.PreferencesGroup({
+            title: 'Enhanced',
+            description: 'Extra features — all off by default',
+        });
+        page.add(group_enhanced);
+
+        const row_workspace = new Adw.SwitchRow({
+            title: 'Workspace indicator',
+            subtitle: 'Show current workspace number next to the app name',
+        });
+        group_enhanced.add(row_workspace);
+        window._settings.bind(
+            'show-workspace', row_workspace, 'active',
+            Gio.SettingsBindFlags.DEFAULT
+        );
+
+        const row_window_count = new Adw.SwitchRow({
+            title: 'Window count badge',
+            subtitle: 'Show how many windows the focused app has open',
+        });
+        group_enhanced.add(row_window_count);
+        window._settings.bind(
+            'show-window-count', row_window_count, 'active',
+            Gio.SettingsBindFlags.DEFAULT
+        );
+
         // ── Shortcuts group ──
         const group_shortcuts = new Adw.PreferencesGroup({
             title: 'Shortcuts',
@@ -394,9 +431,10 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
 
         // ── Header on the page ──
         const group_info = new Adw.PreferencesGroup({
-            title: 'Window Title Pro — Eprahemi Edition',
-            description: 'Based on "Window Title Is Back" by fthx. '
-                + 'MacTahoe-styled fork with panel position and keyboard shortcuts.',
+            title: 'Window Title Pro Topbar Enhanced',
+            description: 'Fork of "Window Title Is Back" by fthx. Features panel position, '
+                + 'keyboard shortcuts, custom CSS, per-app colors, workspace indicator, '
+                + 'and window count.',
         });
         page.add(group_info);
 
@@ -414,7 +452,6 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         reset_group.add(reset_btn);
 
         reset_btn.connect('clicked', () => {
-            // Show confirmation dialog
             const dialog = new Adw.AlertDialog({
                 heading: 'Reset all settings?',
                 body: 'This will restore every setting to its default value. This cannot be undone.',

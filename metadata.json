@@ -1,6 +1,6 @@
 {
-  "description": "Focused window icon + app name + title in the top bar. MacTahoe-styled fork with panel position chooser, keyboard shortcuts, and monochrome option.\n\n Based on original 'Window Title Is Back' by fthx.",
-  "name": "Window Title Pro Topbar",
+  "description": "A powerful GNOME top bar extension that displays the focused window's icon, app name, and title. Features include panel position control, keyboard shortcuts, custom CSS styling, per-app title colors, workspace indicator, window count badge, and fade animations.\n\nFork of \"Window Title Is Back\" by fthx.",
+  "name": "Window Title Pro Topbar Enhanced",
   "shell-version": [
     "45",
     "46",
@@ -11,6 +11,6 @@
   ],
   "url": "https://github.com/eprahemi/window-title-pro",
   "uuid": "window-title-pro@eprahemi.github.io",
-  "version": 8,
+  "version": 10,
   "settings-schema": "org.gnome.shell.extensions.window-title-pro"
 }

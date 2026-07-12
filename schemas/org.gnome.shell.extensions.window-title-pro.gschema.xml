@@ -80,5 +80,25 @@
       <description>Custom font size in pixels. Set to 0 to use the default panel size.</description>
     </key>
 
+    <!-- ── Enhanced features (off by default) ── -->
+
+    <key name="show-workspace" type="b">
+      <default>false</default>
+      <summary>Show workspace indicator</summary>
+      <description>Show the current workspace number next to the app name.</description>
+    </key>
+
+    <key name="show-window-count" type="b">
+      <default>false</default>
+      <summary>Show window count badge</summary>
+      <description>Show how many windows the focused app has open.</description>
+    </key>
+
+    <key name="per-app-color" type="b">
+      <default>false</default>
+      <summary>Per-app title color</summary>
+      <description>Color the app name based on the application (e.g. red for Spotify, blue for Chrome).</description>
+    </key>
+
   </schema>
 </schemalist>
