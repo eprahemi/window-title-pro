@@ -42,6 +42,8 @@ cp -r schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.gi
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/schemas/
 ```
 
+> If you already have a `window-title-pro` folder from a previous clone, the script removes it first and does a fresh clone.
+
 > Works for fresh install and overwrite — `cp -r` replaces existing files silently.
 
 Restart GNOME Shell, then enable:
