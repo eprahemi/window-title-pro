@@ -40,6 +40,8 @@ cp -r extension.js metadata.json prefs.js schemas ~/.local/share/gnome-shell/ext
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/schemas/
 ```
 
+> Works for fresh install and overwrite — `cp -r` replaces existing files silently.
+
 Restart GNOME Shell, then enable:
 
 ```bash
