@@ -33,6 +33,7 @@ Install from [extensions.gnome.org](https://extensions.gnome.org/extension/10319
 ### Manual
 
 ```bash
+[ -d window-title-pro ] && rm -rf window-title-pro
 git clone https://github.com/eprahemi/window-title-pro.git
 cd window-title-pro
 mkdir -p ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io
