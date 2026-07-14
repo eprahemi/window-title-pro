@@ -3,7 +3,7 @@
 A GNOME Shell top bar extension that displays the focused window's icon, app name, and title.
 
 [![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-45%20%7C%2046%20%7C%2047%20%7C%2048%20%7C%2049%20%7C%2050-brightgreen)](https://extensions.gnome.org/extension/10319/window-title-pro/)
-[![Version](https://img.shields.io/badge/version-11-orange)](https://github.com/eprahemi/window-title-pro/releases)
+[![Version](https://img.shields.io/badge/version-12-orange)](https://github.com/eprahemi/window-title-pro-topbar-enhanced/releases)
 [![Fedora MacTahoe](https://img.shields.io/badge/Fedora%20MacTahoe-Eprahemi%20Edition-FF4500)](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
 
 > **Part of the [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi) project** — a complete macOS-style desktop transformation for Fedora Linux.
@@ -33,16 +33,16 @@ Install from [extensions.gnome.org](https://extensions.gnome.org/extension/10319
 ### Manual
 
 ```bash
-[ -d window-title-pro ] && rm -rf window-title-pro
-git clone https://github.com/eprahemi/window-title-pro.git
-cd window-title-pro
+[ -d window-title-pro-topbar-enhanced ] && rm -rf window-title-pro-topbar-enhanced
+git clone https://github.com/eprahemi/window-title-pro-topbar-enhanced.git
+cd window-title-pro-topbar-enhanced
 mkdir -p ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io
 cp extension.js metadata.json prefs.js ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/
 cp -r schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/schemas/
 ```
 
-> If you already have a `window-title-pro` folder from a previous clone, the script removes it first and does a fresh clone.
+> If you already have a `window-title-pro-topbar-enhanced` folder from a previous clone, the script removes it first and does a fresh clone.
 
 > Works for fresh install and overwrite — `cp -r` replaces existing files silently.
 
