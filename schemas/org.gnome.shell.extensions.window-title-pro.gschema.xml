@@ -80,7 +80,7 @@
       <description>Custom font size in pixels. Set to 0 to use the default panel size.</description>
     </key>
 
-    <!-- ── Enhanced features (off by default) ── -->
+    <!-- ── Extra features (off by default) ── -->
 
     <key name="show-workspace" type="b">
       <default>false</default>

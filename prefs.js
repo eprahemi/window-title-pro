@@ -146,7 +146,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         window._settings = this.getSettings();
 
         const page = new Adw.PreferencesPage({
-            title: 'Window Title Pro Enhanced',
+            title: 'Window Title Pro Topbar',
             icon_name: 'dialog-information-symbolic',
         });
         window.add(page);
@@ -388,9 +388,9 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
             Gio.SettingsBindFlags.DEFAULT
         );
 
-        // ── Enhanced group ──
+        // ── Extra group ──
         const group_enhanced = new Adw.PreferencesGroup({
-            title: 'Enhanced',
+            title: 'Extra',
             description: 'Extra features — all off by default',
         });
         page.add(group_enhanced);
@@ -431,10 +431,10 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
 
         // ── Header on the page ──
         const group_info = new Adw.PreferencesGroup({
-            title: 'Window Title Pro Topbar Enhanced',
+            title: 'Window Title Pro Topbar',
             description: 'Focused window icon + app name + title in the top bar. '
                 + 'MacTahoe-styled with per-app colors (379 apps), workspace indicator, '
-                + 'keyboard shortcuts, and window count.\nEnhanced by Eprahemi.',
+                + 'keyboard shortcuts, and window count.',
         });
         page.add(group_info);
 

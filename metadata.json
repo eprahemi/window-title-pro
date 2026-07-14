@@ -1,6 +1,6 @@
 {
-  "description": "A powerful GNOME top bar extension that displays the focused window's icon, app name, and title. Features include panel position control, keyboard shortcuts, per-app title colors (379 apps), workspace indicator, window count badge, and fade animations.\n\nEnhanced by Eprahemi.",
-  "name": "Window Title Pro Topbar Enhanced",
+  "description": "Focused window icon + app name + title in the top bar. Panel position control, keyboard shortcuts, per-app title colors (379 apps), workspace indicator, window count badge, and fade animations.",
+  "name": "Window Title Pro Topbar",
   "shell-version": [
     "45",
     "46",
@@ -9,8 +9,8 @@
     "49",
     "50"
   ],
-  "url": "https://github.com/eprahemi/window-title-pro-topbar-enhanced",
+  "url": "https://github.com/eprahemi/window-title-pro",
   "uuid": "window-title-pro@eprahemi.github.io",
-  "version": 12,
+  "version": 13,
   "settings-schema": "org.gnome.shell.extensions.window-title-pro"
 }

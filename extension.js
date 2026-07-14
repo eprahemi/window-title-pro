@@ -1,10 +1,9 @@
-//    Window Title Pro Topbar Enhanced
+//    Window Title Pro Topbar
 //    GNOME Shell extension — MacTahoe Edition
 //    @eprahemi 2025-2026
 //
-//    Enhanced by Eprahemi
-//    — panel position, keyboard shortcuts, MacTahoe styling
-//    — Enhanced: workspace indicator, window count, per-app colors
+//    panel position, keyboard shortcuts, MacTahoe styling
+//    workspace indicator, window count, per-app colors
 
 
 import Clutter from 'gi://Clutter';
@@ -510,7 +509,7 @@ const WindowTitleIndicator = GObject.registerClass(
                 this
             );
 
-            // ── Workspace signal (Enhanced feature) ──
+            // ── Workspace signal ──
             if (global.workspace_manager) {
                 global.workspace_manager.connectObject(
                     'active-workspace-changed',
@@ -628,7 +627,7 @@ const WindowTitleIndicator = GObject.registerClass(
                 this._title.set_text(this._focused_window.get_title());
         }
 
-        // ── Enhanced: workspace indicator ──
+        // ── Workspace indicator ──
         _update_workspace() {
             if (!this._settings.get_boolean('show-workspace')) {
                 this._workspace.set_text('');
@@ -640,7 +639,7 @@ const WindowTitleIndicator = GObject.registerClass(
             this._workspace.set_text(`[${idx + 1}] `);
         }
 
-        // ── Enhanced: window count badge ──
+        // ── Window count badge ──
         _update_window_count() {
             if (!this._settings.get_boolean('show-window-count') || !this._focused_app) {
                 this._window_count.set_text('');
@@ -654,7 +653,7 @@ const WindowTitleIndicator = GObject.registerClass(
             }
         }
 
-        // ── Enhanced: per-app color ──
+        // ── Per-app color ──
         _get_app_color(app_name) {
             if (!app_name) return null;
             return APP_COLORS[app_name] || '#FFFFFF';
@@ -722,13 +721,13 @@ export default class WindowTitleProExtension extends Extension {
             this._indicator._title.set_style('');
         }
 
-        // ── Per-app color (Enhanced) ──
+        // ── Per-app color ──
         this._apply_per_app_color();
 
         this._indicator._on_focused_window_changed();
     }
 
-    // ── Enhanced: apply per-app color to app label (requires colored-icon ON) ──
+    // ── Apply per-app color to app label (requires colored-icon ON) ──
     _apply_per_app_color() {
         if (!this._settings.get_boolean('colored-icon') || !this._settings.get_boolean('per-app-color') || !this._indicator._focused_app) {
             this._indicator._app.set_style('');
