@@ -389,17 +389,17 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         );
 
         // ── Extra group ──
-        const group_enhanced = new Adw.PreferencesGroup({
+        const group_extra = new Adw.PreferencesGroup({
             title: 'Extra',
             description: 'Extra features — all off by default',
         });
-        page.add(group_enhanced);
+        page.add(group_extra);
 
         const row_workspace = new Adw.SwitchRow({
             title: 'Workspace indicator',
             subtitle: 'Show current workspace number next to the app name',
         });
-        group_enhanced.add(row_workspace);
+        group_extra.add(row_workspace);
         window._settings.bind(
             'show-workspace', row_workspace, 'active',
             Gio.SettingsBindFlags.DEFAULT
@@ -409,7 +409,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
             title: 'Window count badge',
             subtitle: 'Show how many windows the focused app has open',
         });
-        group_enhanced.add(row_window_count);
+        group_extra.add(row_window_count);
         window._settings.bind(
             'show-window-count', row_window_count, 'active',
             Gio.SettingsBindFlags.DEFAULT
