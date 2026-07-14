@@ -36,7 +36,8 @@ Install from [extensions.gnome.org](https://extensions.gnome.org/extension/10319
 git clone https://github.com/eprahemi/window-title-pro.git
 cd window-title-pro
 mkdir -p ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io
-cp -r extension.js metadata.json prefs.js schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/
+cp extension.js metadata.json prefs.js ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/
+cp -r schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/schemas/
 ```
 
