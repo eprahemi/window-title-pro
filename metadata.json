@@ -9,8 +9,8 @@
     "49",
     "50"
   ],
-  "url": "https://github.com/eprahemi/window-title-pro",
+  "url": "https://github.com/eprahemi/window-title-pro-topbar-enhanced",
   "uuid": "window-title-pro@eprahemi.github.io",
-  "version": 10,
+  "version": 12,
   "settings-schema": "org.gnome.shell.extensions.window-title-pro"
 }
