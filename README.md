@@ -85,7 +85,7 @@ Open **GNOME Extensions** app → **Window Title Pro Topbar** → gear icon:
 
 GNOME 45, 46, 47, 48, 49, 50
 
-## Eprahemi
+## Links
 
 - [GitHub](https://github.com/eprahemi)
 - [EGO](https://extensions.gnome.org/extension/10319/window-title-pro/)
