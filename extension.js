@@ -614,7 +614,9 @@ const WindowTitleIndicator = GObject.registerClass(
             if (this._settings.get_boolean('colored-icon') && this._settings.get_boolean('per-app-color')) {
                 if (this._focused_app) {
                     const color = this._get_app_color(this._focused_app.get_name());
-                    this._app.set_style(`color: ${color};`);
+                    const fontSize = this._settings.get_int('font-size');
+                    const fontPart = fontSize > 0 ? `font-size: ${fontSize}px; ` : '';
+                    this._app.set_style(`${fontPart}color: ${color};`);
                 } else {
                     this._app.set_style('');
                 }
