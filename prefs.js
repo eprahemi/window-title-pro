@@ -195,7 +195,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
 
         const row_color = new Adw.SwitchRow({
             title: 'Colored icon',
-            subtitle: 'Show app icon in full color (disable for MacTahoe monochrome style)',
+            subtitle: 'Show app icon in full color (disable for monochrome style)',
         });
         group_appearance.add(row_color);
         window._settings.bind(
@@ -433,7 +433,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         const group_info = new Adw.PreferencesGroup({
             title: 'Window Title Pro Topbar',
             description: 'Focused window icon + app name + title in the top bar. '
-                + 'MacTahoe-styled with per-app colors (379 apps), workspace indicator, '
+                + 'Clean, minimal design with per-app colors (379 apps), workspace indicator, '
                 + 'keyboard shortcuts, and window count.',
         });
         page.add(group_info);
