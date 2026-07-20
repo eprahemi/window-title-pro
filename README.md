@@ -85,10 +85,6 @@ Open **GNOME Extensions** app → **Window Title Pro Topbar** → gear icon:
 
 GNOME 45, 46, 47, 48, 49, 50
 
-## Related Project
-
-Part of the **[Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)** project — a complete macOS-style desktop transformation for Fedora Linux featuring GTK themes, icon themes, SF Pro fonts, Fish shell functions, GDM theming, and more.
-
 ## Eprahemi
 
 - [GitHub](https://github.com/eprahemi)
