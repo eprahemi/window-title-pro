@@ -15,7 +15,7 @@ A GNOME Shell top bar extension that displays the focused window's icon, app nam
 - **Right-click menu** — quick actions: always on top, fullscreen, minimize, maximize, close
 - **Clean style** — monochrome desaturated icons by default, minimal look
 - **Full control** — show/hide icon, app name, and window title independently
-- **Per-app colors** — 379 apps with brand-accurate title colors
+- **Per-app colors** — brand-accurate title colors
 - **Workspace indicator** — shows current workspace number `[1]`, `[2]`, etc.
 - **Window count badge** — shows `(3)` when multiple windows of same app are open
 - **Font size control** — adjustable text size for panel text

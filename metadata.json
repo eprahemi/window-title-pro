@@ -1,5 +1,5 @@
 {
-  "description": "Focused window icon + app name + title in the top bar. Panel position control, keyboard shortcuts, per-app title colors (379 apps), workspace indicator, window count badge, and fade animations.",
+  "description": "Focused window icon + app name + title in the top bar. Panel position control, keyboard shortcuts, per-app title colors, workspace indicator, window count badge, and fade animations.",
   "name": "Window Title Pro Topbar",
   "shell-version": [
     "45",

@@ -433,7 +433,7 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         const group_info = new Adw.PreferencesGroup({
             title: 'Window Title Pro Topbar',
             description: 'Focused window icon + app name + title in the top bar. '
-                + 'Clean, minimal design with per-app colors (379 apps), workspace indicator, '
+                + 'Clean, minimal design with per-app colors, workspace indicator, '
                 + 'keyboard shortcuts, and window count.',
         });
         page.add(group_info);
