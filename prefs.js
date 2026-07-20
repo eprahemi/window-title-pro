@@ -372,14 +372,14 @@ export default class WindowTitleProExtensionPreferences extends ExtensionPrefere
         window._settings.connect('changed::show-title', _sync_separator);
 
         const adjustment_font = new Gtk.Adjustment({
-            lower: 0,
-            upper: 24,
+            lower: 8,
+            upper: 32,
             step_increment: 1,
         });
 
         const row_font = new Adw.SpinRow({
             title: 'Font size (px)',
-            subtitle: 'Set to 0 for default panel size',
+            subtitle: '8–32 px',
             adjustment: adjustment_font,
         });
         group_text.add(row_font);

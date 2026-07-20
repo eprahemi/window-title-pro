@@ -615,8 +615,7 @@ const WindowTitleIndicator = GObject.registerClass(
                 if (this._focused_app) {
                     const color = this._get_app_color(this._focused_app.get_name());
                     const fontSize = this._settings.get_int('font-size');
-                    const fontPart = fontSize > 0 ? `font-size: ${fontSize}px; ` : '';
-                    this._app.set_style(`${fontPart}color: ${color};`);
+                    this._app.set_style(`font-size: ${fontSize}px; color: ${color};`);
                 } else {
                     this._app.set_style('');
                 }
@@ -711,16 +710,10 @@ export default class WindowTitleProExtension extends Extension {
 
         // ── Font size ──
         const fontSize = this._settings.get_int('font-size');
-        if (fontSize > 0) {
-            const style = `font-size: ${fontSize}px;`;
-            this._indicator._icon.set_style(style);
-            this._indicator._app.set_style(style);
-            this._indicator._title.set_style(style);
-        } else {
-            this._indicator._icon.set_style('');
-            this._indicator._app.set_style('');
-            this._indicator._title.set_style('');
-        }
+        const style = `font-size: ${fontSize}px;`;
+        this._indicator._icon.set_style(style);
+        this._indicator._app.set_style(style);
+        this._indicator._title.set_style(style);
 
         // ── Per-app color ──
         this._apply_per_app_color();
@@ -737,8 +730,7 @@ export default class WindowTitleProExtension extends Extension {
         const app_name = this._indicator._focused_app.get_name();
         const color = this._indicator._get_app_color(app_name);
         const fontSize = this._settings.get_int('font-size');
-        const fontPart = fontSize > 0 ? `font-size: ${fontSize}px; ` : '';
-        this._indicator._app.set_style(`${fontPart}color: ${color};`);
+        this._indicator._app.set_style(`font-size: ${fontSize}px; color: ${color};`);
     }
 
     _setup_keybinding() {

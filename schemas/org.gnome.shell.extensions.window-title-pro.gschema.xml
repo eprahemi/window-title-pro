@@ -75,9 +75,9 @@
     </key>
 
     <key name="font-size" type="i">
-      <default>0</default>
+      <default>14</default>
       <summary>Font size override</summary>
-      <description>Custom font size in pixels. Set to 0 to use the default panel size.</description>
+      <description>Custom font size in pixels (8–32).</description>
     </key>
 
     <!-- ── Extra features (off by default) ── -->
