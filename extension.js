@@ -734,7 +734,9 @@ export default class WindowTitleProExtension extends Extension {
         }
         const app_name = this._indicator._focused_app.get_name();
         const color = this._indicator._get_app_color(app_name);
-        this._indicator._app.set_style(`color: ${color};`);
+        const fontSize = this._settings.get_int('font-size');
+        const fontPart = fontSize > 0 ? `font-size: ${fontSize}px; ` : '';
+        this._indicator._app.set_style(`${fontPart}color: ${color};`);
     }
 
     _setup_keybinding() {
