@@ -3,10 +3,7 @@
 A GNOME Shell top bar extension that displays the focused window's icon, app name, and title.
 
 [![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-45%20%7C%2046%20%7C%2047%20%7C%2048%20%7C%2049%20%7C%2050-brightgreen)](https://extensions.gnome.org/extension/10319/window-title-pro/)
-[![Version](https://img.shields.io/badge/version-13-orange)](https://github.com/eprahemi/window-title-pro/releases)
-[![Fedora MacTahoe](https://img.shields.io/badge/Fedora%20MacTahoe-Eprahemi%20Edition-FF4500)](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
-
-> **Part of the [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi) project** — a complete macOS-style desktop transformation for Fedora Linux.
+[![Version](https://img.shields.io/badge/version-14-orange)](https://github.com/eprahemi/window-title-pro/releases)
 
 > **EGO:** [Install from extensions.gnome.org](https://extensions.gnome.org/extension/10319/window-title-pro/)
 
@@ -16,7 +13,7 @@ A GNOME Shell top bar extension that displays the focused window's icon, app nam
 - **Panel position** — place it left, center, or right
 - **Keyboard shortcut** — `Super+Y` to toggle visibility (configurable)
 - **Right-click menu** — quick actions: always on top, fullscreen, minimize, maximize, close
-- **MacTahoe style** — monochrome desaturated icons by default, clean look
+- **Clean style** — monochrome desaturated icons by default, minimal look
 - **Full control** — show/hide icon, app name, and window title independently
 - **Per-app colors** — 379 apps with brand-accurate title colors
 - **Workspace indicator** — shows current workspace number `[1]`, `[2]`, etc.
@@ -88,12 +85,11 @@ Open **GNOME Extensions** app → **Window Title Pro Topbar** → gear icon:
 
 GNOME 45, 46, 47, 48, 49, 50
 
-## Fedora MacTahoe
+## Related Project
 
-This extension is part of the **[Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)** project — a complete macOS-style desktop transformation for Fedora Linux featuring GTK themes, icon themes, SF Pro fonts, Fish shell functions, GDM theming, and more.
+Part of the **[Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)** project — a complete macOS-style desktop transformation for Fedora Linux featuring GTK themes, icon themes, SF Pro fonts, Fish shell functions, GDM theming, and more.
 
 ## Eprahemi
 
 - [GitHub](https://github.com/eprahemi)
 - [EGO](https://extensions.gnome.org/extension/10319/window-title-pro/)
-- [Fedora MacTahoe](https://github.com/eprahemi/Fedora-MacTahoe-Eprahemi)
