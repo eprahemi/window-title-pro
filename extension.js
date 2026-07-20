@@ -1,6 +1,5 @@
 //    Window Title Pro Topbar
 //    GNOME Shell extension
-//    @eprahemi 2025-2026
 //
 //    panel position, keyboard shortcuts
 //    workspace indicator, window count, per-app colors
