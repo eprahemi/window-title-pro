@@ -611,14 +611,16 @@ const WindowTitleIndicator = GObject.registerClass(
             }
 
             // ── Apply per-app color on every window switch (requires colored-icon ON) ──
+            const fontSize = this._settings.get_int('font-size');
             if (this._settings.get_boolean('colored-icon') && this._settings.get_boolean('per-app-color')) {
                 if (this._focused_app) {
                     const color = this._get_app_color(this._focused_app.get_name());
-                    const fontSize = this._settings.get_int('font-size');
                     this._app.set_style(`font-size: ${fontSize}px; color: ${color};`);
                 } else {
-                    this._app.set_style('');
+                    this._app.set_style(`font-size: ${fontSize}px;`);
                 }
+            } else {
+                this._app.set_style(`font-size: ${fontSize}px;`);
             }
         }
 
@@ -723,13 +725,13 @@ export default class WindowTitleProExtension extends Extension {
 
     // ── Apply per-app color to app label (requires colored-icon ON) ──
     _apply_per_app_color() {
+        const fontSize = this._settings.get_int('font-size');
         if (!this._settings.get_boolean('colored-icon') || !this._settings.get_boolean('per-app-color') || !this._indicator._focused_app) {
-            this._indicator._app.set_style('');
+            this._indicator._app.set_style(`font-size: ${fontSize}px;`);
             return;
         }
         const app_name = this._indicator._focused_app.get_name();
         const color = this._indicator._get_app_color(app_name);
-        const fontSize = this._settings.get_int('font-size');
         this._indicator._app.set_style(`font-size: ${fontSize}px; color: ${color};`);
     }
 
