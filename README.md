@@ -3,7 +3,7 @@
 A GNOME Shell top bar extension that displays the focused window's icon, app name, and title.
 
 [![GNOME Shell](https://img.shields.io/badge/GNOME%20Shell-45%20%7C%2046%20%7C%2047%20%7C%2048%20%7C%2049%20%7C%2050-brightgreen)](https://extensions.gnome.org/extension/10319/window-title-pro/)
-[![Version](https://img.shields.io/badge/version-14-orange)](https://github.com/eprahemi/window-title-pro/releases)
+[![Version](https://img.shields.io/badge/version-14-orange)](https://github.com/eprahemi/window-title-pro-topbar/releases)
 
 > **EGO:** [Install from extensions.gnome.org](https://extensions.gnome.org/extension/10319/window-title-pro/)
 
@@ -31,7 +31,7 @@ Install from [extensions.gnome.org](https://extensions.gnome.org/extension/10319
 
 ```bash
 [ -d window-title-pro ] && rm -rf window-title-pro
-git clone https://github.com/eprahemi/window-title-pro.git
+git clone https://github.com/eprahemi/window-title-pro-topbar.git
 cd window-title-pro
 mkdir -p ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io
 cp extension.js metadata.json prefs.js ~/.local/share/gnome-shell/extensions/window-title-pro@eprahemi.github.io/
